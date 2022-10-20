@@ -16,9 +16,22 @@
 </template>
 
 <script setup>
-import { createClient } from '@supabase/supabase-js'
-const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_KEY)
-console.log(supabase)
+import { onMounted } from 'vue';
+import { login, newTask } from './api';
+
+
+
+onMounted(async() => {
+
+  // esto no iria aqui, es solo una prueba para ver que funciona, 
+  const id = await login('anagarciacarrasco@hotmail.com', '1234567');
+  newTask({
+  user_id: id,
+  tittle:'titulo',
+  description: 'Descripcion del task'
+ })
+});
+
 
 </script>
 
