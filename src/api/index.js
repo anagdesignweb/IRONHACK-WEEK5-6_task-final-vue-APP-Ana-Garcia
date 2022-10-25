@@ -33,15 +33,6 @@ export const login = async (email, password) => {
     return response.data.user.id
 }
 
-export const nombreUsuario = async (id) => {
-
-    const response = await supabase.auth.signInWithPassword({
-        email: email,
-        password: password,
-    })
-    return response.data.user.name
-}
-
 //3.CREAR TASK, para crear nuevos tasks utilizamos esta funcion
 // que ira en la vista de tasks
 /* ejemplo de como seria la variable parametro task: 
@@ -110,6 +101,95 @@ export const deleteTask = async (taskId) => {
     const response = await supabase
     .from('task')
     .delete()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     .eq('id', taskId)
     // TODO: identificar el resultado y retornar lo que nos interese
     console.log(response);

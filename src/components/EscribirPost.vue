@@ -22,7 +22,6 @@
 <script setup>
 
 import { ref } from 'vue';
-import { usePostsStore } from '../store/posts'
 import { useAuthStore } from '../store/auth'
 // import { newTask } from '../api'
 import { createClient } from '@supabase/supabase-js'
@@ -30,7 +29,6 @@ import { createClient } from '@supabase/supabase-js'
 const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_KEY)
 console.log(supabase);
 
-const postStore = usePostsStore();
 const authStore = useAuthStore();
 
 
@@ -40,7 +38,6 @@ const description = ref('');
 
 
 const onSubmit = () => {
-
 
     console.log(title.value, description.value, authStore.user.name)
 

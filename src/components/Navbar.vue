@@ -11,7 +11,7 @@
             </div>
             <div>
                 <div class="buttons">
-                    <div>Hola {{ authStore.user.name }}</div>
+                    <div class="mr-4">Hola {{ authStore.user.email }}</div>
                     <button @click="authStore.logout()" class="button is-secundary is-danger">
                         <strong>Cerrar sesion</strong>
                     </button>

@@ -95,7 +95,7 @@ const onSubmit = async () => {
      authStore.login(id, form.value.email.content);
      // Nos redirige al home
      console.log(authStore.user.name)
-     router.push({name: 'user', params:{id:authStore.user.name}})
+     router.push({name: 'home'})
 };
 
 
