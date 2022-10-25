@@ -64,6 +64,13 @@
 
 import { ref } from 'vue';
 import { login } from '../api';
+import { useRouter } from 'vue-router'
+import { useAuthStore } from '../store/auth'
+
+const router = useRouter();
+const authStore = useAuthStore();
+
+
 
 const form = ref({
     email: {
@@ -79,15 +86,16 @@ const form = ref({
 const onSubmit = async () => {
     console.log('login enviado');
 
-    console.log(form.value)
     console.log(form.value.email.content)
     console.log(form.value.password.content)
 
-
     const id = await login(form.value.email.content, form.value.password.content);
 
-    console.log(id)
-
+    console.log(id);
+     authStore.login(id, form.value.email.content);
+     // Nos redirige al home
+     console.log(authStore.user.name)
+     router.push({name: 'user', params:{id:authStore.user.name}})
 };
 
 

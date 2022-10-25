@@ -33,6 +33,14 @@ export const login = async (email, password) => {
     return response.data.user.id
 }
 
+export const nombreUsuario = async (id) => {
+
+    const response = await supabase.auth.signInWithPassword({
+        email: email,
+        password: password,
+    })
+    return response.data.user.name
+}
 
 //3.CREAR TASK, para crear nuevos tasks utilizamos esta funcion
 // que ira en la vista de tasks
@@ -51,7 +59,15 @@ export const newTask = async (task) => {
     console.log(response);
 }
 
-
+// export const nuevoTask = async (id, titulo, descripcion) => {
+//     const response = await supabase.from('task').insert({
+//      user_id: id,
+//      tittle:titulo,
+//      description: descripcion,
+//     })
+//     console.log(response);
+//    }
+   
 //4.LEER LA TABLA TASK DE LA BASE DE DATOS, ahora la funcion para leer los datos que tenemos guardados en la base de datos
 //obtendremos las task del usuario, aqui no se le pasa parametro a la funcion porque se supone que el usuario ya esta identificado en l aapp y carga las de dicho usuario
 export const getTasks = async () => {
@@ -60,6 +76,7 @@ export const getTasks = async () => {
     // el order ordena por l acolumna que le digamos y aascending:false para que el orden no sea ascendente
     const response = await supabase.from('task').select('*').order('id',{ ascending: false })
     console.log(response);
+    return response;
 
     // TODO: retornar la informacion de los task, ej response.data
 }

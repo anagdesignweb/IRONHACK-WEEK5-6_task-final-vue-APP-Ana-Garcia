@@ -4,29 +4,36 @@
         <nav class=" is-flex is-justify-content-space-between">
             <div>
                 <div>
-                    <router-link :to="{name: 'login'}" class="button is-secundary mr-2">Login</router-link>
-                    <router-link :to="{name: 'register'}" class="button is-secundary mr-2">Register</router-link>
-                    <router-link :to="{name: 'home'}" class="button is-secundary mr-2">Home</router-link>
-                    <router-link :to="{name: 'user', params:{id:'ana'}}" class="button is-secundary mr-2">variable del user</router-link>
+                    <router-link :to="{ name: 'login' }" class="button is-secundary mr-2">Login</router-link>
+                    <router-link :to="{ name: 'register' }" class="button is-secundary mr-2">Register</router-link>
+                    <router-link :to="{ name: 'home'}" class="button is-secundary mr-2">Home</router-link>
                 </div>
-
             </div>
             <div>
-                <div>
-                    <div>
-                        <div class="buttons">
-                            <a class="button is-secundary"><strong>Log Out</strong></a>
-                        </div>
-                    </div>
+                <div class="buttons">
+                    <div>Hola {{ authStore.user.name }}</div>
+                    <button @click="authStore.logout()" class="button is-secundary is-danger">
+                        <strong>Cerrar sesion</strong>
+                    </button>
                 </div>
             </div>
         </nav>
     </div>
 
 </template>
+
+
 <script setup>
+import { useRouter } from 'vue-router'
+import { useAuthStore } from '../store/auth'
+
+const router = useRouter();
+const authStore = useAuthStore();
+
 
 </script>
+
+
 <style scoped>
 
 </style>
