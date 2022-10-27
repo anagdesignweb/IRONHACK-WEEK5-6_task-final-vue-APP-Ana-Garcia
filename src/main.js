@@ -22,6 +22,6 @@ library.add(faUserSecret)
 const pinia = createPinia()
 pinia.use(piniaPersist)
 
-createApp(App).component('font-awesome-icon', FontAwesomeIcon).use(router).use(pinia).mount('#app')
+createApp(App).use(router).use(pinia).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
 
 

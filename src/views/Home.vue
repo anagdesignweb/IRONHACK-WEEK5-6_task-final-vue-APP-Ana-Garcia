@@ -10,6 +10,8 @@
                     </router-link>
                 </div>
             </article>
+
+
             <div v-else>
                 <div class="section block container">
                     <EscribirPost />
@@ -61,6 +63,7 @@ import { getTasks } from '../api'
 
 
 const authStore = useAuthStore();
+
 const tasksSupabase = ref([]);
 const mostrar = ref(true);
 const cambiarMenu = ref('all');
@@ -79,34 +82,12 @@ onMounted(async () => {
     // console.log(tasksSupabase.value)
 });
 
-// const onDelete = async (id) => {
-//     alert('Evento del hijo recibido borrar');
-//     // const response = await deleteTask(id);
-//     // console.log(id);
-//     // return response;
-// }
 
-// const onCompleted = async (id, taskCompleted) => {
-//     alert('Evento del hijo recibido TAREA COMPLETADA')
-
-// };
-
-
-// const onUpdate = async (id) => {
-//     alert('Evento del hijo recibido MODIFICADA')
-
-// };
 
 
 </script>
 
 
 <style scoped>
-/* .menu-list{
 
-} */
-/* .btn-menu{
-
-
-} */
 </style>
