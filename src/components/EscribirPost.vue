@@ -23,14 +23,9 @@
 
 import { ref } from 'vue';
 import { useAuthStore } from '../store/auth'
-// import { newTask } from '../api'
-import { createClient } from '@supabase/supabase-js'
-
-const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_KEY)
-// console.log(supabase);
+import { newTask } from '../api'
 
 const authStore = useAuthStore();
-
 
 
 const title = ref('');
@@ -41,18 +36,19 @@ const onSubmit = () => {
 
     console.log(title.value, description.value, authStore.user.name)
 
-    nuevoTask(authStore.user.name);
+    newTask({
+     user_id: authStore.user.name,
+     title:title.value,
+     description: description.value,
+    });
     limpiar();
 };
 
-const nuevoTask = async (id) => {
-    const response = await supabase.from('task').insert({
-     user_id: id,
-     title:title.value,
-     description: description.value,
-    })
-    console.log(response);
-}
+// const taska = {
+//      user_id: authStore.user.name,
+//      title:title.value,
+//      description: description.value,
+//     }
 
 
 const limpiar = () => {

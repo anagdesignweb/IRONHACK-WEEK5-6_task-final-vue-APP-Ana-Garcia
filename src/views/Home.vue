@@ -14,21 +14,6 @@
                 <div class="section container backg-color-blue">
                     <EscribirPost />
                 </div>
-
-                <div class="tabs">
-                    <ul>
-                        <li class="is-active">
-                            <router-link :to="{ name: 'allTasks' }">All</router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{ name: 'todoTasks' }">To-do</router-link>
-                        </li>
-                        <li>
-                            <router-link :to="{ name: 'completedTasks' }">Completadas</router-link>
-                        </li>
-                    </ul>
-                </div>
-
                 <div class="section container backg-color-yellow">
                     <router-view></router-view>
                 </div>

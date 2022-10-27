@@ -50,14 +50,16 @@ export const newTask = async (task) => {
     // console.log(response);
 }
 
-// export const nuevoTask = async (id, titulo, descripcion) => {
-//     const response = await supabase.from('task').insert({
-//      user_id: id,
-//      tittle:titulo,
-//      description: descripcion,
-//     })
-//     console.log(response);
-//    }
+const nuevoTask = async (id) => {
+    const response = await supabase.from('task').insert({
+     user_id: id,
+     title:title.value,
+     description: description.value,
+    })
+    console.log(response);
+}
+
+
    
 //4.LEER LA TABLA TASK DE LA BASE DE DATOS, ahora la funcion para leer los datos que tenemos guardados en la base de datos
 //obtendremos las task del usuario, aqui no se le pasa parametro a la funcion porque se supone que el usuario ya esta identificado en l aapp y carga las de dicho usuario
