@@ -1,66 +1,33 @@
 <template>
 
-    <section class="hero is-fullheight backg-color-pink">
-        <div class="hero-body">
-            <div class="container">
-                <div class="columns is-centered">
-                    <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-                        <form class="box" @submit.prevent="onSubmit()">
-                            <div class="field has-text-centered">
-                                <h1>Login</h1>
-                            </div>
-                            <div class="field">
-                                <label class="label">Email</label>
-                                <div class="control">
-                                    <input v-model="form.email.content" class="input" type="email"
-                                        placeholder="yourname@gmail.com">
-                                </div>
-                            </div>
-                            <div class="field">
-                                <label class="label">Password</label>
-                                <div class="control">
-                                    <input v-model="form.password.content" class="input" type="password"
-                                        placeholder="******" required>
-                                </div>
-                            </div>
-                            <div class="field">
-                                <button class="button is-inline-block is-success" type="submit">Login</button>
-                            </div>
-                            <div class="field">
-                                <p>¿Aun no estas registrado? <router-link :to="{ name: 'register' }">Register
-                                    </router-link>
-                                </p>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+    <h1 class="title is-3">Login</h1>
+    <p class="description m-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit</p>
+    <form @submit.prevent="onSubmit()">
+        <div class="field">
+            <div class="control">
+                <input v-model="form.email.content" class="input is-medium" type="email" placeholder="Email">
             </div>
         </div>
-    </section>
+
+        <div class="field">
+            <div class="control">
+                <input v-model="form.password.content" class="input is-medium" type="password" placeholder="******"
+                    required>
+            </div>
+        </div>
+        <button class="button is-block is-primary is-fullwidth is-medium" type="submit">Submit</button>
+        <br />
+        <p>¿Aun no estas registrado? <router-link :to="{ name: 'register' }">Register
+            </router-link>
+            <font-awesome-icon class="ml-1" icon="fa-solid fa-user-secret" />
+        </p>
+    </form>
 
 
 </template>
 
 
 <script setup>
-
-// import { ref } from 'vue';
-// import { useRouter } from 'vue-router'
-// import { useAuthStore } from '../store/auth'
-
-// const router = useRouter();
-// const authStore = useAuthStore();
-// const name = ref('');
-// const email = ref('');
-// const password = ref('');
-
-// const onSubmit = () => {
-//     console.log('formulario enviado', name.value, email.value, password.value)
-//     authStore.login(name.value, email.value);
-//     // Nos redirige al home
-//     router.push({name: 'user', params:{id:name.value}})
-
-// };
 
 import { ref } from 'vue';
 import { login } from '../api';
@@ -92,10 +59,10 @@ const onSubmit = async () => {
     const id = await login(form.value.email.content, form.value.password.content);
 
     console.log(id);
-     authStore.login(id, form.value.email.content);
-     // Nos redirige al home
-     console.log(authStore.user.name)
-     router.push({name: 'home'})
+    authStore.login(id, form.value.email.content);
+    // Nos redirige al home
+    console.log(authStore.user.name)
+    router.push({ name: 'home' })
 };
 
 

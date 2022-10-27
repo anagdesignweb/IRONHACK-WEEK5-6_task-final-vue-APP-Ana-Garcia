@@ -1,57 +1,42 @@
 <template>
 
-    <section class="hero is-fullheight backg-color-pink">
-        <div class="hero-body">
-            <div class="container">
-                <div class="columns is-centered">
-                    <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-                        <form class="box" @submit.prevent="onSubmit()">
-                            <div class="field has-text-centered">
-                                <h1>Register</h1>
-                            </div>
-                            <div class="field">
-                                <label class="label">Name</label>
-                                <div class="control">
-                                    <input v-model="form.name.content" class="input"
-                                        :class="{ input: true, 'is-danger': form.name.error }" type="text"
-                                        placeholder="Nombre">
-                                </div>
-                            </div>
-                            <div class="field">
-                                <label class="label">Email</label>
-                                <div class="control">
-                                    <input v-model="form.email.content" class="input" type="email"
-                                        placeholder="yourname@gmail.com">
-                                </div>
-                            </div>
-                            <div class="field">
-                                <label class="label">Password</label>
-                                <div class="control">
-                                    <input v-model="form.password1.content" class="input" type="text"
-                                        placeholder="******" required>
-                                </div>
-                            </div>
-                            <div class="field">
-                                <label class="label">Repeat Password</label>
-                                <div class="control">
-                                    <input v-model="form.password.content" class="input"
-                                        :class="{ input: true, 'is-danger': form.password.error }" type="text"
-                                        placeholder="******" required>
-                                </div>
-                            </div>
-                            <div class="field">
-                                <button class="button is-inline-block is-success" type="submit">Register</button>
-                            </div>
-                            <div class="field">
-                                <p>¿ya estas registrado? <router-link :to="{ name: 'login' }">login</router-link>
-                                </p>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+    <h1 class="title is-3">Register</h1>
+    <p class="description m-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit</p>
+    <form @submit.prevent="onSubmit()">
+        <div class="field">
+            <div class="control">
+                <input v-model="form.name.content" class="input is-medium"
+                    :class="{ input: true, 'is-danger': form.name.error }" type="text" placeholder="Nombre">
             </div>
         </div>
-    </section>
+
+        <div class="field">
+            <div class="control">
+                <input v-model="form.email.content" class="input is-medium" type="email"
+                    placeholder="yourname@gmail.com">
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <input v-model="form.password1.content" class="input is-medium" type="password" placeholder="******"
+                    required>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <input v-model="form.password.content" class="input is-medium"
+                    :class="{ input: true, 'is-danger': form.password.error }" type="password" placeholder="******"
+                    required>
+            </div>
+        </div>
+
+        <button class="button is-block is-primary is-fullwidth is-medium" type="submit">Register</button>
+        <br />
+        <p>¿ya estas registrado? <router-link :to="{ name: 'login' }">login</router-link>
+        </p>
+    </form>
 
 
 </template>

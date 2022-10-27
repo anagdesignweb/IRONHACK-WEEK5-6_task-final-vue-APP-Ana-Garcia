@@ -1,7 +1,7 @@
 <template>
 
     <div>
-        <form @submit.prevent="onSubmit()">
+        <form class="box" @submit.prevent="onSubmit()">
             <div class="field">
                 <label class="label">Agrega una nueva tarea:</label>
                 <div class="control">
@@ -12,10 +12,12 @@
                 <textarea v-model="description" class="textarea" placeholder="Escribe un post"></textarea>
             </div>
             <div class="control">
-                <button type="submit" class="mt-2 button is-info">Añadir</button>
+                <button type="submit" class="mt-2 button is-primary">Añadir</button>
             </div>
         </form>
     </div>
+
+
 </template>
 
 
@@ -37,9 +39,9 @@ const onSubmit = () => {
     console.log(title.value, description.value, authStore.user.name)
 
     newTask({
-     user_id: authStore.user.name,
-     title:title.value,
-     description: description.value,
+        user_id: authStore.user.name,
+        title: title.value,
+        description: description.value,
     });
     limpiar();
 };
