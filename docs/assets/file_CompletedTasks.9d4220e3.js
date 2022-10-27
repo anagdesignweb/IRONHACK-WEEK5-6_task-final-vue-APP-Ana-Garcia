@@ -1,0 +1,1 @@
+import{_ as e}from"./file__plugin-vue_export-helper.e718e6fb.js";import{o,c}from"./file_index.99595863.js";const r={};function t(n,s){return o(),c("h1",null,"COMPLETADAS")}const f=e(r,[["render",t]]);export{f as default};
