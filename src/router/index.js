@@ -25,23 +25,7 @@ const routes = [
         path: '/',
         name:'home', 
         component: () => import('../views/Home.vue'),
-        children: [ 
-          { 
-            path: 'allTasks', 
-            name:'allTasks',
-            component: () => import('../views/AllTasks.vue') 
-          },
-          { 
-              path: 'completedTasks', 
-              name:'completedTasks',
-              component: () => import('../views/CompletedTasks.vue') 
-            },
-            { 
-              path: 'todoTasks', 
-              name:'todoTasks',
-              component: () => import('../views/TodoTasks.vue') 
-            },
-        ]
+
       },
   ]
 

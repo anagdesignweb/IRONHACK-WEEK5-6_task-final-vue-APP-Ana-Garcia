@@ -1,7 +1,7 @@
 <template>
-    <h1>TODO vista</h1>
+    <h1>COMPONENTE ALL TASK</h1>
 
-    <VisualizarPost v-if="!props.tarea.completed" :task="props.tarea" />
+    <VisualizarPost :task="props.tarea" />
 
 </template>
 
@@ -12,11 +12,7 @@ import { defineProps } from 'vue';
 
 const props = defineProps({tarea: Object});
 
-
-
-
 </script>
-
 
 
 <style scoped>
