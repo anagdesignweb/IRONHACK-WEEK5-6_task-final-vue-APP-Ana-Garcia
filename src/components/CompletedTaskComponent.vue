@@ -1,5 +1,5 @@
 <template>
-    <h1>Componente task completed</h1>
+    
     <VisualizarPost v-if="props.tarea.completed" :task="props.tarea"/>
 
 

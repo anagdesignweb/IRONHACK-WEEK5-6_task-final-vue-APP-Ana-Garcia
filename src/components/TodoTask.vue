@@ -1,5 +1,4 @@
 <template>
-    <h1>TODO vista</h1>
 
     <VisualizarPost v-if="!props.tarea.completed" :task="props.tarea" />
 

@@ -1,5 +1,4 @@
 <template>
-    <h1>COMPONENTE ALL TASK</h1>
 
     <VisualizarPost :task="props.tarea" />
 
