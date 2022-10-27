@@ -18,7 +18,7 @@ export const registro = async (email, password) => {
         password: password,
     })
         // TODO: hay que identificar el result y retornar lo que nos interesa ( ejemplo si ha habido un error habra que comunicarlo y luego hacer un return de lo que queramos)
-        console.log(response);
+        // console.log(response);
 }
 
 
@@ -47,7 +47,7 @@ export const newTask = async (task) => {
 
     const response = await supabase.from('task').insert(task)
 // TODO: identificar la respuesta y retornar lo que necesitemos ( p.ej retornar un true si se ha insertado el registro y un false sino)
-    console.log(response);
+    // console.log(response);
 }
 
 // export const nuevoTask = async (id, titulo, descripcion) => {
@@ -66,7 +66,7 @@ export const getTasks = async () => {
     // el select quiere decir que columnas de la tabla quiere seleccionar, si ponemos un * quiere decir que seleccionamos todas, si ponemos el nombre de la columna selecciona solo dicho nombre.. (ese id es el id se la task no del usuario)
     // el order ordena por l acolumna que le digamos y aascending:false para que el orden no sea ascendente
     const response = await supabase.from('task').select('*').order('id',{ ascending: false })
-    console.log(response);
+    // console.log(response);
     return response;
 
     // TODO: retornar la informacion de los task, ej response.data
@@ -91,8 +91,25 @@ export const updateTask = async (taskId, task) => {
       .update(task)
       .eq('id', taskId)
         // TODO: identificar el resultado y retornar lo que nos interese, p.ej true si ha ido ben false si ha fallado
-      console.log(response);
+    //   console.log(response);
 }
+
+
+
+//EXTRA (creada por mi)  editar COMPLETADA:
+
+export const updateCompleteTask = async (taskId, taskCompleted) => {
+
+
+    const response = await supabase
+      .from('task')
+      .update({ completed: taskCompleted })
+      .eq('id', taskId)
+
+    //   console.log(response);
+    //   console.log(taskCompleted);
+}
+
 
 
 //6.BORRAR task, funcion de borrar, es muy parecida a la de modificar pero en vez de update se utiliza delete y despues se le dice que queremos borrar, si no se le dice lo borraria todo.
@@ -101,98 +118,9 @@ export const deleteTask = async (taskId) => {
     const response = await supabase
     .from('task')
     .delete()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
     .eq('id', taskId)
     // TODO: identificar el resultado y retornar lo que nos interese
-    console.log(response);
+    // console.log(response);
 }
 
 

@@ -1,1 +1,0 @@
-import{_ as o,r as t,o as n,c as r,a as s,F as c,b as a}from"./index.20467aeb.js";const _={},i=a("h1",null,"este es el inicio",-1);function l(m,u){const e=t("router-view");return n(),r(c,null,[i,s(e)],64)}const f=o(_,[["render",l]]);export{f as default};

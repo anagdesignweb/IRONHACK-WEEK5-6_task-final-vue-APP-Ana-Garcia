@@ -27,7 +27,7 @@ import { useAuthStore } from '../store/auth'
 import { createClient } from '@supabase/supabase-js'
 
 const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_KEY)
-console.log(supabase);
+// console.log(supabase);
 
 const authStore = useAuthStore();
 
@@ -52,8 +52,7 @@ const nuevoTask = async (id) => {
      description: description.value,
     })
     console.log(response);
-   }
-
+}
 
 
 const limpiar = () => {
@@ -61,7 +60,7 @@ const limpiar = () => {
     title.value = '';
     description.value = '';
 
-}
+};
 
 
 
