@@ -69,6 +69,7 @@ const form = ref({
 });
 
 const onSubmit = async () => {
+
     console.log('formulario enviado');
 
 
@@ -79,15 +80,22 @@ const onSubmit = async () => {
     if (form.value.name.content.length === 0) form.value.name.error = true;
     else form.value.name.error = false;
 
+
     const registrarDatos = async () => {
 
         const id = await registro(form.value.email.content, form.value.password.content);
 
     };
 
+    if (form.value.password1.content !== form.value.password.content) {
+        form.value.password.error = true;
+        alert('la contraseña no es correcta');        
+    } 
+    else {
+        alert('la contraseña no es correcta'); 
+        registrarDatos();
+    }
 
-    if (form.value.password1.content !== form.value.password.content) form.value.password.error = true;
-    else registrarDatos();
 
 };
 
