@@ -1,41 +1,38 @@
 <template>
 
     <div>
-        <div class="card my-4" v-if="mostrar">
-            <div class="card-content">
-                <p class="title my-2">
-                <header :class="props.task.completed ? 'has-text-danger' : ''">
-                    <div class="has-text-weight-bold">{{ props.task.title }}</div>
-                </header>
-                </p>
-                <p class="subtitle my-5">
-                    {{ props.task.description }}
-                </p>
-            </div>
-            <footer class="card-footer ">
-                    <button class="card-footer-item button is-success is-light" @click="onCompleted(props.task.completed)">completada</button>
-                    <button class="card-footer-item button is-warning is-light" @click="modificarTarea">modificar</button>
-                    <button class="card-footer-item button is-danger is-light" @click="onDelete(props.task.id)">Borrar</button>
+
+        <div class="box mb-4" v-if="mostrar">
+            <header :class="props.task.completed ? 'text-tachado' : ''">
+                <h4 id="const" class="title is-3">{{ props.task.title }}</h4>
+            </header>
+            <p class="subtitle">
+                {{ props.task.description }}
+            </p>
+            <footer class="card-footer">
+                <button class="button is-success is-light m-2"
+                    @click="onCompleted(props.task.completed)">completada</button>
+                <button class="button is-warning is-light m-2" @click="modificarTarea">modificar</button>
+                <button class="button is-danger is-light m-2"
+                    @click="onDelete(props.task.id)">Borrar</button>
             </footer>
         </div>
-
-
-        <div class="card my-4" v-else>
-
+        <div class="box" v-else>
             <form @submit="onUpdate(props.task.id)">
                 <div class="card-content field">
                     <label class="label">Modifica la tarea:</label>
-                <div class="control field">
-                    <input class="input" type="text" :placeholder="props.task.title" v-model="tituloInput">
+                    <div class="control field">
+                        <input class="input" type="text" :placeholder="props.task.title" v-model="tituloInput">
+                    </div>
+                    <div class="control">
+                        <textarea class="textarea" :placeholder="props.task.description"
+                            v-model="descripcionInput"></textarea>
+                    </div>
                 </div>
-                <div class="control">
-                    <textarea class="textarea" :placeholder="props.task.description" v-model="descripcionInput"></textarea>
-                </div>
-            </div>
-            <footer class="card-footer ">
+                <footer class="card-footer ">
                     <button class="card-footer-item button is-white" @click="modificarTarea">atras</button>
-                   <button class="card-footer-item button is-primary is-light">modificar</button>     
-            </footer>
+                    <button class="card-footer-item button is-primary is-light">modificar</button>
+                </footer>
             </form>
         </div>
     </div>

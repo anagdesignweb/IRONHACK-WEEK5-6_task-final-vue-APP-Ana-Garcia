@@ -1,12 +1,12 @@
 <template>
     <div class="has-background-white">
         <div class="container">
-        <Navbar />              
+            <Navbar />
         </div>
-      
+
     </div>
 
-    <div>
+    <section class="section">
         <div class="container">
             <article v-if="!authStore.isAuth" class="message is-danger">
                 <div class="message-body">
@@ -17,40 +17,43 @@
                 </div>
             </article>
 
-
-            <div v-else>
-                <div class="section block container">
+            <div class="columns" v-else>
+                <div class="column is-4">
                     <EscribirPost />
+                    <aside class="is-medium menu">
+                        <p class="menu-label mt-4">categories</p>
+                        <ul class="menu-list">
+                            <li class="is-right">
+                                <button class="button is-block is-white is-fullwidth is-medium mb-4"
+                                    @click="cambiarVista('all')">All</button>
+                            </li>
+                            <li>
+                                <button class="button is-block is-white is-fullwidth is-medium mb-4"
+                                    @click="cambiarVista('to-do')">to-do</button>
+                            </li>
+                            <li>
+                                <button class="button is-block is-white is-fullwidth is-medium mb-4"
+                                    @click="cambiarVista('completadas')">Completed</button>
+                            </li>
+                        </ul>
+                    </aside>
                 </div>
-
-                <div class="section container">
-                    <div class="content is-normal">
-                        <h3>Tasks</h3>
-                    </div>
-                    <div class="block backg-color-yellow p-4">
-                        <div class="buttons is-centered">
-                            <button class="button is-light is-primary mx-5" @click="cambiarVista('all')">All</button>
-                            <button class="button is-light is-primary mx-5"
-                                @click="cambiarVista('to-do')">to-do</button>
-                            <button class="button is-light is-primary mx-5"
-                                @click="cambiarVista('completadas')">Completed</button>
-                        </div>
-                    </div>
-
-                    <div class="block">
+                <div class="column is-8">
+                    <div class="content is_medium">
+                        <h3 class="title is-3">Tareas</h3>
                         <AllTasksComponent v-if="cambiarMenu == 'all'" v-for="task in tasksSupabase" :tarea="task" />
 
                         <TodoTask v-if="cambiarMenu == 'to-do'" v-for="task in tasksSupabase" :tarea="task" />
 
                         <CompletedTaskComponent v-if="cambiarMenu == 'completadas'" v-for="task in tasksSupabase"
                             :tarea="task" />
-                    </div>
-
-
+                    </div>                   
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+
 
 </template>
 

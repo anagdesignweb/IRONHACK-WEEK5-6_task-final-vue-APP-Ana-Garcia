@@ -121,3 +121,7 @@
     font-size: 1.15rem;
 
   }
+  .text-tachado{
+   text-decoration: line-through;
+   color: rgb(102, 102, 102);
+  }
