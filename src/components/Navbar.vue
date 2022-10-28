@@ -1,21 +1,13 @@
 <template>
-
-    <div class="container m-3">
-        <nav class=" is-flex is-justify-content-space-between">
-            <div>
-                <div>
-                    <div class="mr-4">Hola,  {{ authStore.user.email }}</div>
-                </div>
-            </div>
-            <div>
-                <div class="buttons">
-                    <button @click="authStore.logout()" class="button is-secundary is-danger">
-                        <strong>Cerrar sesion</strong>
-                    </button>
-                </div>
-            </div>
-        </nav>
+    <div class="p-3 is-flex is-justify-content-space-between">
+        <div>
+            <div class="mr-4 mt-2">Hola, <span class="color-pink-text">{{ authStore.user.email }}</span></div>
+        </div>
+        <button @click="authStore.logout()" class="button is-secundary">
+            <strong>Cerrar sesion</strong>
+        </button>
     </div>
+    
 
 </template>
 

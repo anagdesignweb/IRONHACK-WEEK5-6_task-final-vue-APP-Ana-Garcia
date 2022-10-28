@@ -22,7 +22,7 @@
 
         <div class="card my-4" v-else>
 
-            <form @submit.prevent="onUpdate(props.task.id)">
+            <form @submit="onUpdate(props.task.id)">
                 <div class="card-content field">
                     <label class="label">Modifica la tarea:</label>
                 <div class="control field">

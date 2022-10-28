@@ -8,19 +8,19 @@
                 <input v-model="form.email.content" class="input is-medium" type="email" placeholder="Email">
             </div>
         </div>
-
         <div class="field">
             <div class="control">
                 <input v-model="form.password.content" class="input is-medium" type="password" placeholder="******"
                     required>
             </div>
         </div>
-        <button class="button is-block is-primary is-fullwidth is-medium" type="submit">Submit</button>
-        <br />
-        <p>¿Aun no estas registrado? <router-link :to="{ name: 'register' }">Register
-            </router-link>
-            <font-awesome-icon class="ml-1" icon="fa-solid fa-user-secret" />
-        </p>
+        <div class="field">
+            <button class="button is-block is-primary is-fullwidth is-medium" type="submit">login</button>
+            <br />
+            <p>¿Aun no estas registrado? <router-link :to="{ name: 'register' }">Register
+                </router-link>
+            </p>
+        </div>
     </form>
 
 
@@ -28,6 +28,7 @@
 
 
 <script setup>
+
 
 import { ref } from 'vue';
 import { login } from '../api';
@@ -64,6 +65,7 @@ const onSubmit = async () => {
     console.log(authStore.user.name)
     router.push({ name: 'home' })
 };
+
 
 
 

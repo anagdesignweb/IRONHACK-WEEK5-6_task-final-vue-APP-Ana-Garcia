@@ -1,5 +1,4 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
-@import "https://kit.fontawesome.com/15181efa86.js";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
 /*Paleta de colores*/
@@ -48,6 +47,13 @@
   .backg-color-pink{
     background-color: var(--pink);
   }
+  .color-pink-text{
+    color: var(--brandColor);
+  }
+
+
+
+
   .bordecito{
     border: 2px solid red;
   }

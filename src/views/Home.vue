@@ -1,5 +1,11 @@
 <template>
-    <Navbar />
+    <div class="has-background-white">
+        <div class="container">
+        <Navbar />              
+        </div>
+      
+    </div>
+
     <div>
         <div class="container">
             <article v-if="!authStore.isAuth" class="message is-danger">
