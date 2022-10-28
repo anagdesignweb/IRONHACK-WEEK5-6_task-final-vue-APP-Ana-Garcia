@@ -16,7 +16,6 @@
                     </router-link>
                 </div>
             </article>
-
             <div class="columns" v-else>
                 <div class="column is-4">
                     <EscribirPost />
